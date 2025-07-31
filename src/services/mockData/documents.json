@@ -1,0 +1,198 @@
+[
+  {
+    "Id": 1,
+    "userId": "user_123",
+    "fileName": "Apartment_Lease_Agreement.pdf",
+    "fileType": "pdf",
+    "uploadDate": "2024-01-15T10:30:00.000Z",
+    "analysisResult": {
+      "plainEnglishSummary": "This rental agreement establishes a 12-month lease for a one-bedroom apartment at $1,300/month. The lease includes standard terms but has some concerning clauses around pet fees and early termination penalties that you should be aware of.",
+      "riskLevel": "medium",
+      "keyDates": [
+        {
+          "date": "2024-02-01",
+          "description": "Lease start date",
+          "type": "start"
+        },
+        {
+          "date": "2025-01-31",
+          "description": "Lease end date",
+          "type": "end"
+        }
+      ],
+      "totalFinancialObligation": 15600,
+      "recommendations": [
+        "Review the pet fee policy carefully - there's a $500 non-refundable fee",
+        "Understand the early termination clause requires 2 months rent penalty",
+        "Clarify maintenance responsibilities with landlord"
+      ]
+    },
+    "risks": [
+      {
+        "level": "high",
+        "title": "Hidden Pet Fee",
+        "description": "There's a $500 non-refundable pet fee buried in section 12.3 that's not mentioned in the main lease terms.",
+        "recommendation": "Negotiate this fee or ensure you understand it's non-refundable before signing."
+      },
+      {
+        "level": "medium",
+        "title": "Early Termination Penalty",
+        "description": "Breaking the lease early results in forfeiture of security deposit plus 2 months rent ($2,600 total).",
+        "recommendation": "Consider the implications if you need to move before lease end. This is higher than typical penalties."
+      }
+    ],
+    "deadlines": [
+      {
+        "date": "2024-02-01",
+        "description": "First rent payment due",
+        "priority": "high"
+      },
+      {
+        "date": "2024-01-25",
+        "description": "Security deposit due",
+        "priority": "high"
+      },
+      {
+        "date": "2024-12-01",
+        "description": "Lease renewal notice deadline",
+        "priority": "medium"
+      }
+    ],
+    "financialObligations": {
+      "monthlyRent": 1300,
+      "securityDeposit": 1300,
+      "totalCost": 15600,
+      "additionalFees": [
+        {
+          "name": "Pet Fee",
+          "amount": 500,
+          "refundable": false
+        },
+        {
+          "name": "Application Fee",
+          "amount": 100,
+          "refundable": false
+        }
+      ]
+    }
+  },
+  {
+    "Id": 2,
+    "userId": "user_123",
+    "fileName": "Employment_Contract_TechCorp.docx",
+    "fileType": "docx",
+    "uploadDate": "2024-01-10T14:45:00.000Z",
+    "analysisResult": {
+      "plainEnglishSummary": "This employment contract offers a Software Engineer position with a $75,000 annual salary. The contract includes standard employment terms with some restrictive non-compete clauses that limit your ability to work for competitors for 18 months after leaving.",
+      "riskLevel": "high",
+      "keyDates": [
+        {
+          "date": "2024-02-15",
+          "description": "Employment start date",
+          "type": "start"
+        },
+        {
+          "date": "2024-08-15",
+          "description": "Probationary period ends",
+          "type": "milestone"
+        }
+      ],
+      "totalFinancialObligation": 75000,
+      "recommendations": [
+        "Negotiate the 18-month non-compete period - this is unusually long",
+        "Clarify the definition of 'competitor' in the non-compete clause",
+        "Ensure you understand the intellectual property assignment terms"
+      ]
+    },
+    "risks": [
+      {
+        "level": "high",
+        "title": "Excessive Non-Compete Period",
+        "description": "The 18-month non-compete restriction is longer than industry standard and may significantly limit your career options.",
+        "recommendation": "Negotiate to reduce this to 6-12 months or narrow the scope of restricted companies."
+      },
+      {
+        "level": "medium",
+        "title": "Broad Intellectual Property Assignment",
+        "description": "All work-related inventions and ideas become company property, even those developed outside work hours.",
+        "recommendation": "Request an exception for personal projects unrelated to company business."
+      }
+    ],
+    "deadlines": [
+      {
+        "date": "2024-01-20",
+        "description": "Contract signing deadline",
+        "priority": "high"
+      },
+      {
+        "date": "2024-02-01",
+        "description": "Background check completion",
+        "priority": "medium"
+      }
+    ],
+    "financialObligations": {
+      "annualSalary": 75000,
+      "totalCost": 75000,
+      "additionalFees": []
+    }
+  },
+  {
+    "Id": 3,
+    "userId": "user_123",
+    "fileName": "Divorce_Decree_Final.pdf",
+    "fileType": "pdf",
+    "uploadDate": "2024-01-05T09:15:00.000Z",
+    "analysisResult": {
+      "plainEnglishSummary": "This divorce decree finalizes the dissolution of marriage and establishes child custody arrangements, support payments, and property division. You have primary custody of the children with specified visitation rights for your ex-spouse, and child support payments of $800/month are required.",
+      "riskLevel": "low",
+      "keyDates": [
+        {
+          "date": "2024-01-01",
+          "description": "Divorce decree effective date",
+          "type": "effective"
+        },
+        {
+          "date": "2026-01-01",
+          "description": "Child support review date",
+          "type": "review"
+        }
+      ],
+      "totalFinancialObligation": 19200,
+      "recommendations": [
+        "Set up automatic child support payments to avoid late fees",
+        "Understand your rights regarding custody modification",
+        "Keep detailed records of all support payments"
+      ]
+    },
+    "risks": [
+      {
+        "level": "low",
+        "title": "Support Payment Timing",
+        "description": "Child support payments are due on the 1st of each month. Late payments may result in penalties and legal action.",
+        "recommendation": "Set up automatic payments to ensure consistent, on-time payments."
+      }
+    ],
+    "deadlines": [
+      {
+        "date": "2024-02-01",
+        "description": "First child support payment due",
+        "priority": "high"
+      },
+      {
+        "date": "2024-03-15",
+        "description": "Property transfer deadline",
+        "priority": "medium"
+      },
+      {
+        "date": "2026-01-01",
+        "description": "Child support review hearing",
+        "priority": "low"
+      }
+    ],
+    "financialObligations": {
+      "monthlyChildSupport": 800,
+      "totalCost": 19200,
+      "additionalFees": []
+    }
+  }
+]
