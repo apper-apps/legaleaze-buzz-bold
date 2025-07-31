@@ -49,11 +49,18 @@ const Header = () => {
           </nav>
 
           {/* User Actions */}
-          <div className="hidden lg:flex items-center space-x-4">
+<div className="hidden lg:flex items-center space-x-4">
             <div className="flex items-center space-x-2 text-sm text-gray-600">
               <ApperIcon name="FileText" className="w-4 h-4" />
               <span>2/2 docs used</span>
             </div>
+            <Button
+              variant="secondary"
+              size="sm"
+              onClick={() => navigate("/login")}
+            >
+              Sign In
+            </Button>
             <Button
               variant="primary"
               size="sm"
@@ -100,22 +107,36 @@ const Header = () => {
                 <span>{item.name}</span>
               </Link>
             ))}
-            <div className="border-t border-gray-200 pt-4 mt-4">
-              <div className="flex items-center justify-between px-4 py-2">
+<div className="border-t border-gray-200 pt-4 mt-4">
+              <div className="flex flex-col space-y-3 px-4 py-2">
                 <div className="flex items-center space-x-2 text-sm text-gray-600">
                   <ApperIcon name="FileText" className="w-4 h-4" />
                   <span>2/2 docs used</span>
                 </div>
-                <Button
-                  variant="primary"
-                  size="sm"
-                  onClick={() => {
-                    navigate("/subscription");
-                    setIsMobileMenuOpen(false);
-                  }}
-                >
-                  Upgrade
-                </Button>
+                <div className="flex space-x-2">
+                  <Button
+                    variant="secondary"
+                    size="sm"
+                    onClick={() => {
+                      navigate("/login");
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className="flex-1"
+                  >
+                    Sign In
+                  </Button>
+                  <Button
+                    variant="primary"
+                    size="sm"
+                    onClick={() => {
+                      navigate("/subscription");
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className="flex-1"
+                  >
+                    Upgrade
+                  </Button>
+                </div>
               </div>
             </div>
           </div>

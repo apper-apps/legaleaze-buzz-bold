@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import Layout from "@/components/Layout";
 import Landing from "@/components/pages/Landing";
+import LoginSignup from "@/components/pages/LoginSignup";
 import Dashboard from "@/components/pages/Dashboard";
 import Upload from "@/components/pages/Upload";
 import Analysis from "@/components/pages/Analysis";
@@ -13,8 +14,9 @@ function App() {
   return (
 <BrowserRouter>
       <div className="min-h-screen bg-gray-50">
-        <Routes>
+<Routes>
           <Route path="/" element={<Landing />} />
+          <Route path="/login" element={<LoginSignup />} />
           <Route element={<Layout />}>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/upload" element={<Upload />} />
