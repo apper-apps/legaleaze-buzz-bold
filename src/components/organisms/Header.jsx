@@ -50,9 +50,14 @@ const Header = () => {
 
           {/* User Actions */}
 <div className="hidden lg:flex items-center space-x-4">
-            <div className="flex items-center space-x-2 text-sm text-gray-600">
-              <ApperIcon name="FileText" className="w-4 h-4" />
-              <span>2/2 docs used</span>
+            <div className="flex items-center space-x-3 text-sm">
+              <div className="flex items-center space-x-2 px-3 py-1 bg-primary-100 text-primary-700 rounded-full">
+                <ApperIcon name="Crown" className="w-4 h-4" />
+                <span className="font-medium">Free Plan</span>
+              </div>
+              <div className="w-8 h-8 bg-gradient-to-r from-primary-500 to-primary-600 rounded-full flex items-center justify-center text-white text-sm font-medium">
+                JD
+              </div>
             </div>
             <Button
               variant="secondary"
@@ -109,9 +114,14 @@ const Header = () => {
             ))}
 <div className="border-t border-gray-200 pt-4 mt-4">
               <div className="flex flex-col space-y-3 px-4 py-2">
-                <div className="flex items-center space-x-2 text-sm text-gray-600">
-                  <ApperIcon name="FileText" className="w-4 h-4" />
-                  <span>2/2 docs used</span>
+                <div className="flex items-center space-x-3">
+                  <div className="flex items-center space-x-2 px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm">
+                    <ApperIcon name="Crown" className="w-4 h-4" />
+                    <span className="font-medium">Free Plan</span>
+                  </div>
+                  <div className="w-8 h-8 bg-gradient-to-r from-primary-500 to-primary-600 rounded-full flex items-center justify-center text-white text-sm font-medium">
+                    JD
+                  </div>
                 </div>
                 <div className="flex space-x-2">
                   <Button
