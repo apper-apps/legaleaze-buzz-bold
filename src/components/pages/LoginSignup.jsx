@@ -144,13 +144,13 @@ const [errors, setErrors] = useState({});
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 flex items-center justify-center px-4 py-12">
       <div className="w-full max-w-md">
         {/* Header */}
-        <div className="text-center mb-8">
-          <Link to="/" className="inline-flex items-center space-x-2 mb-6">
+<div className="text-center mb-8">
+          <div className="inline-flex items-center space-x-2 mb-6">
             <div className="w-10 h-10 bg-gradient-to-r from-primary-500 to-primary-600 rounded-xl flex items-center justify-center">
               <ApperIcon name="Scale" className="w-6 h-6 text-white" />
             </div>
             <span className="text-2xl font-bold gradient-text">Legaleaze</span>
-          </Link>
+          </div>
           
           <motion.div
             initial={{ opacity: 0, y: 20 }}
