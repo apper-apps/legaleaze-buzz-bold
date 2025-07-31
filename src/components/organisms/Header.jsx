@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { toast } from "react-toastify";
 import ApperIcon from "@/components/ApperIcon";
 import Button from "@/components/atoms/Button";
+import { useAuth } from "@/contexts/AuthContext";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-
+  const { isAuthenticated, user, logout } = useAuth();
   const navItems = [
     { name: "Dashboard", path: "/dashboard", icon: "LayoutDashboard" },
     { name: "Documents", path: "/documents", icon: "FileText" },
@@ -59,13 +61,27 @@ const Header = () => {
                 JD
               </div>
             </div>
-            <Button
-              variant="secondary"
-              size="sm"
-              onClick={() => navigate("/login")}
-            >
-              Sign In
-            </Button>
+{isAuthenticated ? (
+              <Button
+                variant="secondary"
+                size="sm"
+                onClick={() => {
+                  logout();
+                  toast.success("Successfully signed out");
+                  navigate("/");
+                }}
+              >
+                Sign Out
+              </Button>
+            ) : (
+              <Button
+                variant="secondary"
+                size="sm"
+                onClick={() => navigate("/login")}
+              >
+                Sign In
+              </Button>
+            )}
             <Button
               variant="primary"
               size="sm"
@@ -124,17 +140,33 @@ const Header = () => {
                   </div>
                 </div>
                 <div className="flex space-x-2">
-                  <Button
-                    variant="secondary"
-                    size="sm"
-                    onClick={() => {
-                      navigate("/login");
-                      setIsMobileMenuOpen(false);
-                    }}
-                    className="flex-1"
-                  >
-                    Sign In
-                  </Button>
+{isAuthenticated ? (
+                    <Button
+                      variant="secondary"
+                      size="sm"
+                      onClick={() => {
+                        logout();
+                        toast.success("Successfully signed out");
+                        navigate("/");
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className="flex-1"
+                    >
+                      Sign Out
+                    </Button>
+                  ) : (
+                    <Button
+                      variant="secondary"
+                      size="sm"
+                      onClick={() => {
+                        navigate("/login");
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className="flex-1"
+                    >
+                      Sign In
+                    </Button>
+                  )}
                   <Button
                     variant="primary"
                     size="sm"

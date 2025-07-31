@@ -1,10 +1,11 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { motion } from "framer-motion";
+import { useAuth } from "@/contexts/AuthContext";
 import ApperIcon from "@/components/ApperIcon";
-import Button from "@/components/atoms/Button";
 import Input from "@/components/atoms/Input";
+import Button from "@/components/atoms/Button";
 import Card from "@/components/atoms/Card";
 
 const LoginSignup = () => {
@@ -18,8 +19,18 @@ const LoginSignup = () => {
     lastName: "",
     acceptTerms: false,
   });
-  const [errors, setErrors] = useState({});
+const [errors, setErrors] = useState({});
   const navigate = useNavigate();
+  const location = useLocation();
+  const { login, isAuthenticated } = useAuth();
+
+  // Redirect if already authenticated
+  useEffect(() => {
+    if (isAuthenticated) {
+      const from = location.state?.from?.pathname || '/dashboard';
+      navigate(from, { replace: true });
+    }
+  }, [isAuthenticated, navigate, location]);
 
   const validateForm = () => {
     const newErrors = {};
@@ -89,15 +100,27 @@ const LoginSignup = () => {
     try {
       // Simulate API call
       await new Promise((resolve) => setTimeout(resolve, 1500));
+// Create user data object
+      const userData = {
+        email: formData.email,
+        firstName: isLogin ? 'John' : formData.firstName,
+        lastName: isLogin ? 'Doe' : formData.lastName,
+        plan: 'Free Plan'
+      };
+
+      // Use the login method from AuthContext
+      login(userData);
 
       if (isLogin) {
         toast.success("Welcome back! Successfully logged in.");
-        navigate("/dashboard");
       } else {
         toast.success("Account created successfully! Welcome to Legaleaze.");
-        navigate("/dashboard");
       }
-    } catch (error) {
+
+      // Navigate to intended destination or dashboard
+      const from = location.state?.from?.pathname || '/dashboard';
+      navigate(from, { replace: true });
+} catch (error) {
       toast.error("Something went wrong. Please try again.");
     } finally {
       setLoading(false);
