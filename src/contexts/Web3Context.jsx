@@ -101,8 +101,9 @@ export const Web3Provider = ({ children }) => {
         });
         setChainId(chainId);
       }
-    } catch (err) {
+} catch (err) {
       console.error('Error checking MetaMask connection:', err);
+      setError('Failed to check MetaMask connection');
     }
   };
 
@@ -124,13 +125,24 @@ export const Web3Provider = ({ children }) => {
       toast.info('Network changed');
     };
 
-    const handleDisconnect = () => {
+const handleDisconnect = () => {
       disconnectWallet();
     };
 
-    window.ethereum.on('accountsChanged', handleAccountsChanged);
-    window.ethereum.on('chainChanged', handleChainChanged);
-    window.ethereum.on('disconnect', handleDisconnect);
+    if (window.ethereum) {
+      window.ethereum.on('accountsChanged', handleAccountsChanged);
+      window.ethereum.on('chainChanged', handleChainChanged);
+      window.ethereum.on('disconnect', handleDisconnect);
+
+      // Cleanup function to prevent memory leaks
+      return () => {
+        if (window.ethereum?.removeListener) {
+          window.ethereum.removeListener('accountsChanged', handleAccountsChanged);
+          window.ethereum.removeListener('chainChanged', handleChainChanged);
+          window.ethereum.removeListener('disconnect', handleDisconnect);
+        }
+      };
+    }
 
     // Check initial connection
     checkConnection();
