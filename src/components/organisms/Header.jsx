@@ -23,14 +23,13 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 glass border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <Link to="/dashboard" className="flex items-center space-x-2">
+{/* Logo */}
+          <Link to="/" className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-gradient-to-r from-primary-500 to-primary-600 rounded-lg flex items-center justify-center">
               <ApperIcon name="Scale" className="w-5 h-5 text-white" />
             </div>
             <span className="text-xl font-bold gradient-text">Legaleaze</span>
           </Link>
-
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
             {navItems.map((item) => (
